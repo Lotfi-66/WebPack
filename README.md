@@ -7,3 +7,5 @@ npm i --save-dev mini-css-extract-plugin
 and add const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
 
 npm i --save-dev @babel/core @babel/preset-env babel-loader
+
+npm i --save-dev sass-loader node-sass

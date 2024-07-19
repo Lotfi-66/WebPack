@@ -1,0 +1,70 @@
+h1{
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    text-decoration-style: dashed;
+
+    &:hover{
+        color: blue;
+    }
+}
+
+p{
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    text-decoration-style: dashed;
+
+    &:hover{
+        color: blue;
+    }
+}
+
+body{
+    background-color: rgba(22, 10, 44, 0.87);
+}
+
+h2{
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(151, 151, 151);
+
+    &:hover{
+        color: blue;
+    }
+}
+
+h3{
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(151, 151, 151);
+
+    &:hover{
+        color: blue;
+    }
+}
+
+
+h4{
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(151, 151, 151);
+
+    &:hover{
+        color: blue;
+    }
+}
+
+h5{
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(151, 151, 151);
+
+    &:hover{
+        color: blue;
+    }
+}

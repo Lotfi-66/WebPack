@@ -1,43 +1,59 @@
 const path = require('path');
+const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    // 1. On lui donne son point d'entrée de l'application
-    entry: path.resolve(__dirname,'./src/index.js'),
+    //1. on lui donne sont point d enree de l application
+    entry: path.resolve(__dirname, './src/index.js'),
+    mode: 'production',
     module: {
-        //on va lui donner des regles
+        //on lui donne des regles
         rules: [
             {
-                // on lui dit que pour tous les fichiers js on les traite avec babel-loader
+                //on lui dit que c'est un fichier js on utilise babelloader
                 test: /\.(js)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
-
             {
-              //on lui dit que pour les fichiers css on va utiliser style-loader et cc-loader
-                test: /\.(css)$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                test: /\.(scss|css)$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    ['postcss-preset-env',
+                                        {}
+
+                                    ]
+                                ]
+                            }
+                        }
+                    },
+                    'sass-loader'
+
+                ]
             }
         ]
     },
-
     plugins: [
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin()
     ],
     resolve: {
-        //on lui dit qu'on va utiliser les extensions .js
-        extensions: ['*','.js']
+        extensions: ['*', '.js']
     },
 
-    // 2. On lui donne son point de sortie de l'application
+    //2. on lui donne son point de sortie, l endroit ou on compile le code
     output: {
-        path:path.resolve(__dirname,'./dist'),
+        path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js'
     },
 
-    // 3. On lui donne le devServer pour lancer le serveur
+    //3. on lui DONNE LE DEVSERVER POUR LANCER LE SERVEUR
     devServer: {
-        static: path.resolve(__dirname,'./dist'),
-    },
+        static: path.resolve(__dirname, './dist')
+    }
 }
